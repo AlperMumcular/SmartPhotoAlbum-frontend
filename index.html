@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 10px;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Arial', sans-serif;
+                color: rgb(0, 0, 0);
+                background-color: rgb(255, 255, 255);
+            }
+        </style>
+
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.879.0.min.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+
+        <script src="apiGateway-js-sdk/index.js"></script>
+    </head>
+    <body>
+        <div style="align-items: center;">
+            <center>
+                <form action="" method="get" target="" id="search_photos" style="display: inline;">
+                    <input name="search_query" id="search_query" type="text" placeholder="Enter Query" autocomplete="off" autofocus>
+                </form>
+                <button type="button" id="searchQuery" name="searchQuery" style="width: 100px; height: 25px; margin-left: 10px;" onclick="searchQuery()">Search</button>
+            </center>
+        </div>
+        
+        <div id="photos_search_results"></div>
+        <center>
+            <h2>Upload Photo</h2>
+            <form action="/action_page.php">
+                <input type="file" id="uploaded_file" name="filename" accept="image/*">
+                <input type="text" id="custom_labels" name="custom_labels" placeholder="Enter Your Labels">
+            </form>
+            <button id="upload_files" onclick="uploadPhoto()">Upload Photo</button>
+        </center>
+    </body>
+</html>
