@@ -1,6 +1,7 @@
 var apigClient = apigClientFactory.newClient();
 
 function searchQuery() {
+	console.log("Pipeline test");
     var searchText = document.getElementById('search_query').value.trim().toLowerCase();
 
     document.getElementById('search_query').value = searchText;
