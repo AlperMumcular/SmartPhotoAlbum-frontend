@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "No dependencies to install for plain JavaScript and HTML."
+  build:
+    commands:
+      - echo "Preparing files for upload..."
+      - mkdir build  # Create a build directory
+      - cp -r apiGateway-js-sdk build/  # Copy the apiGateway-js-sdk folder
+      - cp index.html build/  # Copy the index.html file
+  post_build:
+    commands:
+      - echo "Uploading files to S3..."
+      - aws s3 sync ./build s3://alper-hw3-b1/ --delete
+
+artifacts:
+  files:
+    - '**/*'
